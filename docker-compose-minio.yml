@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  minio_kpmg:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./data/minio_kpmg/:/data
+    environment:
+      MINIO_ROOT_USER: KPMG@2023
+      MINIO_ROOT_PASSWORD: KPMG@2023
+    command: server --console-address ":9001" /data
